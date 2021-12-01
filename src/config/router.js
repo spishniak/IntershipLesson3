@@ -1,5 +1,7 @@
+const userRouter = require('../components/user/router');
+
 function initt(server) {
-  // TODO server.use('/', SomeConroller)
+  server.use('/v1/users', userRouter);
 }
 
 module.exports = {
