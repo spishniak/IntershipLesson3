@@ -14,10 +14,14 @@ function updatePatchUser(idUser, user) {
 function deleteUser(idUser) {
   return UserModel.findByIdAndDelete(idUser);
 }
+function findUserById(idUser) {
+  return UserModel.findById(idUser);
+}
 
 module.exports = {
   findAllUsers,
   createdUser,
   updatePatchUser,
   deleteUser,
+  findUserById,
 };

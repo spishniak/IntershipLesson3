@@ -1,7 +1,7 @@
 const userRouter = require('../components/user/router');
 
 function initt(server) {
-  server.use('/v1/users', userRouter);
+  server.use('/v1/user', userRouter);
 }
 
 module.exports = {

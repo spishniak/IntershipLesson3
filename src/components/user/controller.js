@@ -1,3 +1,4 @@
+const { UserModel } = require('./model');
 const UserService = require('./service');
 
 async function findAllUsers(req, res) {
@@ -25,10 +26,18 @@ async function deleteUser(req, res) {
   await UserService.deleteUser(idUser);
   res.status(204).end();
 }
+async function findUserById(req, res) {
+  const idUser = req.params.id;
+  const user = await UserService.findUserById(idUser);
+  res.json({
+    data: user,
+  });
+}
 
 module.exports = {
   findAllUsers,
   createdUser,
   updateUser,
   deleteUser,
+  findUserById,
 };
