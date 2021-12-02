@@ -1,4 +1,3 @@
-const { UserModel } = require('./model');
 const UserService = require('./service');
 
 async function findAllUsers(req, res) {
