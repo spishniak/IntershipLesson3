@@ -3,6 +3,7 @@ const { connection } = require('../config/connection');
 const router = require('../config/router');
 
 const app = express();
+app.use(express.json());
 const port = 3000;
 
 async function bootstrap() {
