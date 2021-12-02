@@ -7,12 +7,17 @@ function findAllUsers() {
 function createdUser(user) {
   return UserModel.create(user);
 }
-function updateUser(idUser, user) {
-  return UserModel.findOneAndUpdate(idUser, user);
+
+function updatePatchUser(idUser, user) {
+  return UserModel.findOneAndUpdate(idUser, user, { new: true }).lean();
+}
+function deleteUser(idUser) {
+  return UserModel.findByIdAndDelete(idUser);
 }
 
 module.exports = {
   findAllUsers,
   createdUser,
-  updateUser,
+  updatePatchUser,
+  deleteUser,
 };

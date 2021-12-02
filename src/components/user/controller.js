@@ -11,17 +11,24 @@ async function createdUser(req, res) {
     data: savedUser,
   });
 }
+
 async function updateUser(req, res) {
   const idUser = req.params.id;
   const user = req.body;
-  const newUser = await UserService.updateUser(idUser, user);
+  const newUser = await UserService.updatePatchUser(idUser, user);
   res.json({
     data: newUser,
   });
+}
+async function deleteUser(req, res) {
+  const idUser = req.params.id;
+  await UserService.deleteUser(idUser);
+  res.status(204).end();
 }
 
 module.exports = {
   findAllUsers,
   createdUser,
   updateUser,
+  deleteUser,
 };
